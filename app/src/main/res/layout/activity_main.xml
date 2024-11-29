@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Основной макет игры -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <!-- Область с набором кораблей -->
+        <TextView
+            android:id="@+id/shipSelectionLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Разместите ваши корабли"
+            android:textSize="18sp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="8dp" />
+
+        <GridLayout
+            android:id="@+id/shipSelectionGrid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:background="#CCCCCC"
+            android:columnCount="5"
+            android:padding="4dp">
+
+            <!-- Корабли и мины для размещения -->
+            <!-- Четырёхпалубный корабль -->
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp">
+
+                <ImageButton
+                    android:id="@+id/ship_four_deck"
+                    android:layout_width="60dp"
+                    android:layout_height="182dp"
+                    android:background="@null"
+                    android:contentDescription="4-палубный"
+                    android:src="@drawable/ship_four_deck" />
+
+                <TextView
+                    android:id="@+id/ship_four_deck_quantity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top|end"
+                    android:background="@android:color/white"
+                    android:padding="2dp"
+                    android:text="1"
+                    android:textColor="@android:color/black" />
+            </FrameLayout>
+
+            <!-- Трёхпалубный корабль -->
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp">
+
+                <ImageButton
+                    android:id="@+id/ship_three_deck"
+                    android:layout_width="60dp"
+                    android:layout_height="140dp"
+                    android:background="@null"
+                    android:contentDescription="3-палубный"
+                    android:src="@drawable/ship_three_deck" />
+
+                <TextView
+                    android:id="@+id/ship_three_deck_quantity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top|end"
+                    android:background="@android:color/white"
+                    android:padding="2dp"
+                    android:text="2"
+                    android:textColor="@android:color/black" />
+            </FrameLayout>
+
+            <!-- Двухпалубный корабль -->
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp">
+
+                <ImageButton
+                    android:id="@+id/ship_two_deck"
+                    android:layout_width="60dp"
+                    android:layout_height="96dp"
+                    android:background="@null"
+                    android:contentDescription="2-палубный"
+                    android:src="@drawable/ship_two_deck" />
+
+                <TextView
+                    android:id="@+id/ship_two_deck_quantity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top|end"
+                    android:background="@android:color/white"
+                    android:padding="2dp"
+                    android:text="3"
+                    android:textColor="@android:color/black" />
+            </FrameLayout>
+
+            <!-- Однопалубный корабль -->
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp">
+
+                <ImageButton
+                    android:id="@+id/ship_one_deck"
+                    android:layout_width="60dp"
+                    android:layout_height="54dp"
+                    android:background="@null"
+                    android:contentDescription="1-палубный"
+                    android:src="@drawable/ship_one_deck" />
+
+                <TextView
+                    android:id="@+id/ship_one_deck_quantity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top|end"
+                    android:background="@android:color/white"
+                    android:padding="2dp"
+                    android:text="2"
+                    android:textColor="@android:color/black" />
+            </FrameLayout>
+
+            <!-- Мина -->
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp">
+
+                <ImageButton
+                    android:id="@+id/ship_mine"
+                    android:layout_width="60dp"
+                    android:layout_height="54dp"
+                    android:background="@null"
+                    android:contentDescription="Мина"
+                    android:src="@drawable/mine" />
+
+                <TextView
+                    android:id="@+id/ship_mine_quantity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top|end"
+                    android:background="@android:color/white"
+                    android:padding="2dp"
+                    android:text="2"
+                    android:textColor="@android:color/black" />
+            </FrameLayout>
+
+        </GridLayout>
+
+        <!-- Кнопка "Повернуть" -->
+        <Button
+            android:id="@+id/rotateButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Повернуть (Горизонтально)"
+            android:layout_gravity="center"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Кнопка "В бой" -->
+        <Button
+            android:id="@+id/startGameButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="В бой"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Поле противника -->
+        <TextView
+            android:id="@+id/opponentLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Поле противника"
+            android:textSize="18sp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="8dp"
+            android:visibility="gone" />
+
+        <GridLayout
+            android:id="@+id/opponentGrid"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:columnCount="10"
+            android:rowCount="10"
+            android:padding="4dp"
+            android:background="#CCCCCC"
+            android:visibility="gone" />
+
+        <!-- Поле игрока -->
+        <TextView
+            android:id="@+id/playerLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ваше поле"
+            android:textSize="18sp"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp" />
+
+        <GridLayout
+            android:id="@+id/playerGrid"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:columnCount="10"
+            android:rowCount="10"
+            android:padding="4dp"
+            android:background="#CCCCCC" />
+
+    </LinearLayout>
+
+    <!-- Кнопка справки -->
+    <ImageButton
+        android:id="@+id/helpButton"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="end|top"
+        android:layout_margin="5dp"
+        android:background="?attr/selectableItemBackground"
+        android:contentDescription="Справка"
+        android:scaleType="fitCenter"
+        android:src="@drawable/help_icon" />
+
+</FrameLayout>
